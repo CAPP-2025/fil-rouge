@@ -18,9 +18,9 @@ public class SideScrolling : MonoBehaviour
 
     private void LateUpdate()
     {
-        // track the player moving to the right
+        // track the player
         Vector3 cameraPosition = transform.position;
-        cameraPosition.x = Mathf.Max(cameraPosition.x, player.position.x);
+        cameraPosition.x = player.position.x;
         transform.position = cameraPosition;
     }
 

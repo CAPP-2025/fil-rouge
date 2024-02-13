@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
     public bool falling => velocity.y < 0f && !grounded;
 
-    // on awake, cache the camera, rigidbody, and collider
     private void Awake()
     {
         camera = Camera.main;
@@ -63,14 +62,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // move player based on his velocity
         Vector2 position = rigidbody.position;
         position += velocity * Time.fixedDeltaTime;
 
         // // clamp within the screen bounds
-        // Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
-        // Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-        // position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
+         Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
+         Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+         position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
 
         rigidbody.MovePosition(position);
     }
@@ -83,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
 
         // check if running into a wall
         if (rigidbody.Raycast(Vector2.right * velocity.x)) {
+            velocity.x = 0f;
+        }
+
+        //stop horizontal movement if grounded and not pressing anything
+        if (grounded && inputAxis == 0f || sliding) {
             velocity.x = 0f;
         }
 
