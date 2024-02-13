@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // state assessments
     public bool grounded { get; private set; }
     public bool jumping { get; private set; }
+    private float walljumpTimer = 0f;
     public bool running => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
     public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
     public bool falling => velocity.y < 0f && !grounded;
@@ -49,18 +50,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        HorizontalMovement();
+        if (walljumpTimer > 0f) {
+            walljumpTimer -= Time.deltaTime;
+        }
 
         grounded = rigidbody.Raycast(Vector2.down);
 
         if (grounded) {
+            walljumpTimer = 0f;
             GroundedMovement();
         }
+        if (rigidbody.Raycast(Vector2.right) && !grounded) {
+            WallMovement(true);
+        }
+        if (rigidbody.Raycast(Vector2.left) && !grounded) {
+            WallMovement(false);
+        }
+        HorizontalMovement();
 
         ApplyGravity();
+        UpdatePosition();
     }
 
-    private void FixedUpdate()
+    private void UpdatePosition()
     {
         Vector2 position = rigidbody.position;
         position += velocity * Time.fixedDeltaTime;
@@ -75,13 +87,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void HorizontalMovement()
     {
-        // accelerate / decelerate
-        inputAxis = Input.GetAxis("Horizontal");
-        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
-
-        // check if running into a wall
-        if (rigidbody.Raycast(Vector2.right * velocity.x)) {
-            velocity.x = 0f;
+        if (walljumpTimer <= 0f)
+        {
+            // accelerate / decelerate
+            inputAxis = Input.GetAxis("Horizontal");
+            velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
         }
 
         //stop horizontal movement if grounded and not pressing anything
@@ -106,8 +116,27 @@ public class PlayerMovement : MonoBehaviour
         // perform jump
         if (Input.GetButtonDown("Jump"))
         {
+            Debug.Log("jump");
             velocity.y = jumpForce;
             jumping = true;
+        }
+    }
+
+    private void WallMovement(bool right)
+    {
+        // prevent horizontal movement from infinitly building up
+        if (right && velocity.x > 0f || !right && velocity.x < 0f) {
+            velocity.x = 0f;
+        }
+        // perform jump and push away from wall
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("walljump");
+            velocity.y = jumpForce;
+            inputAxis = right ? -1f : 1f;
+            velocity.x = inputAxis * moveSpeed;
+            jumping = true;
+            walljumpTimer = 0.5f;
         }
     }
 
