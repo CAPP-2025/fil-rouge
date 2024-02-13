@@ -12,7 +12,7 @@ public class Pipe : MonoBehaviour
     {
         if (connection != null && other.CompareTag("Player"))
         {
-            if (Input.GetKey(enterKeyCode)) {
+            if (Input.GetKey(enterKeyCode) || Input.GetKey(KeyCode.Return)) {
                 StartCoroutine(Enter(other.transform));
             }
         }
