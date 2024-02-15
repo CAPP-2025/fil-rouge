@@ -1,9 +1,10 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerSpriteRenderer : MonoBehaviour
+public class FoxSpriteRenderer : MonoBehaviour
 {
     private PlayerMovement movement;
+    public FollowPlayer followPlayer;
     public SpriteRenderer spriteRenderer { get; private set; }
     public Sprite idle;
     public Sprite jump;
@@ -17,12 +18,25 @@ public class PlayerSpriteRenderer : MonoBehaviour
 
     private void LateUpdate()
     {
-        run.enabled = movement.running;
+        if (movement.enabled)
+        {
+            run.enabled = movement.running;
 
-        if (movement.jumping) {
-            spriteRenderer.sprite = jump;
-        } else if (!movement.running) {
-            spriteRenderer.sprite = idle;
+            if (movement.jumping) {
+                spriteRenderer.sprite = jump;
+            } else if (!movement.running) {
+                spriteRenderer.sprite = idle;
+            }
+        }
+        else
+        {
+            run.enabled = followPlayer.running;
+
+            if (followPlayer.jumping) {
+                spriteRenderer.sprite = jump;
+            } else if (!followPlayer.running) {
+                spriteRenderer.sprite = idle;
+            }
         }
     }
 

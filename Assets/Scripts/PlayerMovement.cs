@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     public bool jumping { get; private set; }
     private float walljumpTimer = 0f;
     public bool running => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
-    public bool sliding => (inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f);
     public bool falling => velocity.y < 0f && !grounded;
 
     private void Awake()
@@ -114,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //stop horizontal movement if grounded and not pressing anything
-        if (grounded && inputAxis == 0f || sliding) {
+        if ((inputAxis > 0f && velocity.x < 0f) || (inputAxis < 0f && velocity.x > 0f) || (inputAxis == 0f && grounded)) {
             velocity.x = 0f;
         }
 
