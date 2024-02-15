@@ -116,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
         // perform jump
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("jump");
             velocity.y = jumpForce;
             jumping = true;
         }
@@ -131,7 +130,6 @@ public class PlayerMovement : MonoBehaviour
         // perform jump and push away from wall
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("walljump");
             velocity.y = jumpForce;
             inputAxis = right ? -1f : 1f;
             velocity.x = inputAxis * moveSpeed;
@@ -159,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
             if (transform.DotTest(collision.transform, Vector2.down))
             {
                 // bounce back up from the enemy's head, and kill the enemy
-                velocity.y = jumpForce / 2f;
+                velocity.y = jumpForce;
                 jumping = true;
             }
         }

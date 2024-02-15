@@ -25,11 +25,11 @@ public class Player : MonoBehaviour
     {
         if (!dead && !starpower)
         {
-            if (big) {
+            /*if (big) {
                 Shrink();
-            } else {
+            } else {*/
                 Death();
-            }
+            //}
         }
     }
 
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         GameManager.Instance.ResetLevel(3f);
     }
 
-    public void Grow()
+    /*public void Grow()
     {
         smallRenderer.enabled = false;
         bigRenderer.enabled = true;
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
-    }
+    }*/
 
     public void Starpower()
     {
