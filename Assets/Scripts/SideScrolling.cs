@@ -4,7 +4,7 @@ using UnityEngine;
 public class SideScrolling : MonoBehaviour
 {
     private new Camera camera;
-    private Transform player;
+    public Transform player;
 
     public float height = 6.5f;
     public float undergroundHeight = -9.5f;

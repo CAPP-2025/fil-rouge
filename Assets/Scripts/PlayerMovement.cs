@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 velocity;
     private float inputAxis;
+    public PlayerMovement otherMovement;
+    public FollowPlayer followPlayer;
+    public bool isMain = true;
 
     // speed constants
     public float moveSpeed = 8f;
@@ -30,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
         camera = Camera.main;
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        if (!isMain)
+        {
+            enabled = false;
+        }
     }
 
     private void OnEnable()
@@ -70,6 +77,18 @@ public class PlayerMovement : MonoBehaviour
 
         ApplyGravity();
         UpdatePosition();
+        if (Input.GetKeyDown(KeyCode.PageDown) && grounded && inputAxis == 0f)
+        {
+            Swap();
+        }
+    }
+
+    public void Swap()
+    {
+        otherMovement.enabled = true;
+        enabled = false;
+        followPlayer.enabled = !isMain;
+        camera.GetComponent<SideScrolling>().player = otherMovement.transform;
     }
 
     private void UpdatePosition()

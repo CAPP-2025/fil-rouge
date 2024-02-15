@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     public PlayerSpriteRenderer smallRenderer;
     public PlayerSpriteRenderer bigRenderer;
+    public SpriteRenderer petRenderer;
     private PlayerSpriteRenderer activeRenderer;
 
     public CapsuleCollider2D capsuleCollider { get; private set; }
@@ -35,8 +36,10 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
+        Camera.main.GetComponent<SideScrolling>().player = this.transform;
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
+        petRenderer.enabled = false;
         deathAnimation.enabled = true;
 
         GameManager.Instance.ResetLevel(3f);

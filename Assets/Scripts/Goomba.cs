@@ -18,6 +18,10 @@ public class Goomba : MonoBehaviour
                 player.Hit();
             }
         }
+        if (collision.gameObject.CompareTag("Pet")) {
+            Pet pet = collision.gameObject.GetComponent<Pet>();
+            pet.Hit();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
