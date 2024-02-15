@@ -10,8 +10,6 @@ public class lever : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // disable animator
-        GetComponent<Animator>().enabled = false;
     }
 
     // Update is called once per frame
@@ -32,14 +30,8 @@ public class lever : MonoBehaviour
     // Activate the lever
     private void Activate()
     {
-        // enable the animator
-        GetComponent<Animator>().enabled = true;
-
         // set triggered to true
         triggered = true;
-
-        // play the animation
-        GetComponent<Animator>().Play("Lever_animation");
 
         Debug.Log("Lever activated");
     }

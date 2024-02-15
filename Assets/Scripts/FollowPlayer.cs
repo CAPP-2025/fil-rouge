@@ -30,6 +30,21 @@
          
             if(storedPositions.Count > followDistance)
             {
+                // if going to the left, mirror the sprite (flip it on the x axis)
+                // if (storedPositions[0].x > followingMe.transform.position.x && (storedJumping[0] || storedRunning[0]))
+                // {
+                //     followingMe.transform.eulerAngles = Vector3.zero;
+                // } else {
+                //     followingMe.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                // }
+
+                if (storedPositions.Count > 1 && storedPositions[0].x < storedPositions[1].x  && (storedJumping[0] || storedRunning[0]))
+                {
+                    followingMe.transform.eulerAngles = Vector3.zero;
+                } else {
+                    followingMe.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                }
+
                 followingMe.transform.position = storedPositions[0];
                 storedPositions.RemoveAt (0);
                 jumping = storedJumping[0];
