@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class lever : MonoBehaviour
 {
+    // private triggered
+    private bool triggered = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +23,24 @@ public class lever : MonoBehaviour
     // if the Collider2D is triggered by a player, call the Activate method
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !triggered)
         {
-            // write "lever activated" to the console
-            Debug.Log("lever activated");
-            // enable the animator
-            GetComponent<Animator>().enabled = true;
-            // start the animation
-            GetComponent<Animator>().SetTrigger("activate");
+            Activate();
         }
+    }
+
+    // Activate the lever
+    private void Activate()
+    {
+        // enable the animator
+        GetComponent<Animator>().enabled = true;
+
+        // set triggered to true
+        triggered = true;
+
+        // play the animation
+        GetComponent<Animator>().Play("Lever_animation");
+
+        Debug.Log("Lever activated");
     }
 }
