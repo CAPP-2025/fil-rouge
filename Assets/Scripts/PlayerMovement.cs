@@ -188,4 +188,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            velocity.x /= 2f;
+            maxJumpHeight = 1f;
+            maxJumpTime = 0.5f;
+            moveSpeed = 3f;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            maxJumpHeight = 5f;
+            maxJumpTime = 1f;
+            moveSpeed = 8f;
+        }
+    }
 }
