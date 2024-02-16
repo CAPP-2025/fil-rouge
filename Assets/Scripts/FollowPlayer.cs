@@ -1,15 +1,16 @@
     using UnityEngine;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
      
     public class FollowPlayer : MonoBehaviour
     {
      
         public GameObject followingMe;
         public int followDistance;
-        private List<Vector3> storedPositions;
-        private List<bool> storedRunning;
-        private List<bool> storedJumping;
+        private Queue<Vector3> storedPositions;
+        private Queue<bool> storedRunning;
+        private Queue<bool> storedJumping;
         public PlayerMovement movement;
      
         public bool jumping;
@@ -17,16 +18,16 @@
      
         void Awake()
         {
-            storedPositions = new List<Vector3>();
-            storedRunning = new List<bool>();
-            storedJumping = new List<bool>();
+            storedPositions = new Queue<Vector3>();
+            storedRunning = new Queue<bool>();
+            storedJumping = new Queue<bool>();
         }
      
         void Update()
         {
-            storedPositions.Add(transform.position);
-            storedJumping.Add(movement.jumping);
-            storedRunning.Add(movement.running);
+            storedPositions.Enqueue(transform.position);
+            storedJumping.Enqueue(movement.jumping);
+            storedRunning.Enqueue(movement.running);
          
             if(storedPositions.Count > followDistance)
             {
@@ -38,19 +39,16 @@
                 //     followingMe.transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 // }
 
-                if (storedPositions.Count > 1 && storedPositions[0].x < storedPositions[1].x  && (storedJumping[0] || storedRunning[0]))
+                if (storedPositions.Count > 1 && storedPositions.Peek().x < storedPositions.ElementAt(1).x  && (storedJumping.Peek() || storedRunning.Peek()))
                 {
                     followingMe.transform.eulerAngles = Vector3.zero;
                 } else {
                     followingMe.transform.eulerAngles = new Vector3(0f, 180f, 0f);
                 }
 
-                followingMe.transform.position = storedPositions[0];
-                storedPositions.RemoveAt (0);
-                jumping = storedJumping[0];
-                running = storedRunning[0];
-                storedJumping.RemoveAt (0);
-                storedRunning.RemoveAt (0);
+                followingMe.transform.position = storedPositions.Dequeue();
+                jumping = storedJumping.Dequeue();
+                running = storedRunning.Dequeue();
             }
         }
     }
