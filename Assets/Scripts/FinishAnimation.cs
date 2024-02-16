@@ -5,7 +5,7 @@ public class FinishAnimation : MonoBehaviour
 {
     public Transform bottom;
     public Transform destination;
-    public float speed = 8f;
+    public float speed = 15f;
     public GameObject birds;
 
     private GameObject player;
