@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody.isKinematic = true;
         collider.enabled = false;
         velocity = Vector2.zero;
+        inputAxis = 0f;
         jumping = false;
     }
 
