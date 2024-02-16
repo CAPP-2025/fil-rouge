@@ -11,4 +11,10 @@ public class Pet : MonoBehaviour
         player.Hit();
         GetComponent<PlayerMovement>().Swap();
     }
+
+    public void Death()
+    {
+        player.Death();
+        GetComponent<PlayerMovement>().Swap();
+    }
 }

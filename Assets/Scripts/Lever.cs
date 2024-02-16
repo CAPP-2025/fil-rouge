@@ -23,7 +23,7 @@ public class lever : MonoBehaviour
     // if the Collider2D is triggered by a player, call the Activate method
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!triggered && other.gameObject.CompareTag("Player"))
+        if (!triggered && (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Pet")))
         {
             // write "lever activated" to the console
             Debug.Log("lever activated");

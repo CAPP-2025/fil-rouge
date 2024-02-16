@@ -58,17 +58,26 @@ public class DeathAnimation : MonoBehaviour
     private IEnumerator Animate()
     {
         float elapsed = 0f;
-        float duration = 3f;
+        float duration = 1.5f;
 
         float jumpVelocity = 10f;
         float gravity = -36f;
 
-        Vector3 velocity = Vector3.up * jumpVelocity;
+        // Vector3 velocity = Vector3.up * jumpVelocity;
 
+        // while (elapsed < duration)
+        // {
+        //     transform.position += velocity * Time.deltaTime;
+        //     velocity.y += gravity * Time.deltaTime;
+        //     elapsed += Time.deltaTime;
+        //     yield return null;
+        // }
+
+        // jump upwards and then fall down infinitely
         while (elapsed < duration)
         {
-            transform.position += velocity * Time.deltaTime;
-            velocity.y += gravity * Time.deltaTime;
+            transform.position += Vector3.up * jumpVelocity * Time.deltaTime;
+            jumpVelocity += gravity * Time.deltaTime;
             elapsed += Time.deltaTime;
             yield return null;
         }
