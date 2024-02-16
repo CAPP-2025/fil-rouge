@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource killed;
     [SerializeField] private AudioSource jumpChampi;
 
-    private Vector2 velocity;
+    public Vector2 velocity;
     private float inputAxis;
     public PlayerMovement otherMovement;
     public FollowPlayer followPlayer;
@@ -21,17 +21,19 @@ public class PlayerMovement : MonoBehaviour
     public float maxJumpHeight = 5f;
     public float maxJumpTime = 1f;
     public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
-    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
+    public float gravity;
 
     // state assessments
-    public bool grounded { get; private set; }
+    public bool grounded ;//{ get; private set; }
     public bool jumping { get; private set; }
     private float walljumpTimer = 0f;
     public bool running => Mathf.Abs(velocity.x) > 0.25f || Mathf.Abs(inputAxis) > 0.25f;
     public bool falling => velocity.y < 0f && !grounded;
+    private bool sinking = false;
 
     private void Awake()
     {
+        gravity = (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
         camera = Camera.main;
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
@@ -60,11 +62,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        ApplyGravity();
         if (walljumpTimer > 0f) {
             walljumpTimer -= Time.deltaTime;
         }
 
-        grounded = rigidbody.Raycast(Vector2.down);
+        //cast down and at an angle to check for ground and walls
+        if (isMain)
+        {
+            grounded = (rigidbody.Raycast(Vector2.down)
+            || rigidbody.Raycast(Vector2.down + Vector2.right + Vector2.down)
+            || rigidbody.Raycast(Vector2.down + Vector2.left + Vector2.down))
+            && (collider.IsTouchingLayers(LayerMask.GetMask("Default")) || collider.IsTouchingLayers(LayerMask.GetMask("Water")));
+        }
+        else
+        {
+            grounded = (rigidbody.Raycast(Vector2.down, 0.375f, 0.12f)
+            || rigidbody.Raycast(Vector2.down + Vector2.right + Vector2.down, 0.53f, 0.1f)
+            || rigidbody.Raycast(Vector2.down + Vector2.left + Vector2.down, 0.53f, 0.1f))
+            && (collider.IsTouchingLayers(LayerMask.GetMask("Default")) || collider.IsTouchingLayers(LayerMask.GetMask("Water")));
+        }
 
         if (grounded) {
             walljumpTimer = 0f;
@@ -78,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
         }
         HorizontalMovement();
 
-        ApplyGravity();
         UpdatePosition();
         if (Input.GetKeyDown(KeyCode.PageDown) && grounded && inputAxis == 0f)
         {
@@ -100,9 +116,9 @@ public class PlayerMovement : MonoBehaviour
         position += velocity * Time.fixedDeltaTime;
 
         // // clamp within the screen bounds
-         Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
-         Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-         position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
+        Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
+        Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
 
         rigidbody.MovePosition(position);
     }
@@ -132,12 +148,30 @@ public class PlayerMovement : MonoBehaviour
     private void GroundedMovement()
     {
         // prevent gravity from infinitly building up
-        velocity.y = Mathf.Max(velocity.y, 0f);
+        if (!sinking)
+            velocity.y = Mathf.Max(velocity.y, 0f);
         jumping = velocity.y > 0f;
 
         // perform jump
         if (Input.GetButtonDown("Jump"))
         {
+            if (!sinking)
+            {
+                if (isMain)
+                {
+                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.15f))
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.15f))
+                    {
+                        return;
+                    }
+                }
+            }
             velocity.y = jumpForce;
             jumping = true;
         }
@@ -146,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
     private void WallMovement(bool right)
     {
         // prevent horizontal movement from infinitly building up
-        if (right && velocity.x > 0f || !right && velocity.x < 0f) {
+        if ((right && velocity.x > 0f || !right && velocity.x < 0f)) {
             velocity.x = 0f;
         }
         // perform jump and push away from wall
@@ -186,11 +220,25 @@ public class PlayerMovement : MonoBehaviour
             else
                 killed.Play();
         }
-        else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
+        else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp") && collision.gameObject.layer != LayerMask.NameToLayer("Water"))
         {
             // stop vertical movement if mario bonks his head
-            if (transform.DotTest(collision.transform, Vector2.up)) {
-                velocity.y = 0f;
+            if (!sinking)
+            {
+                if (isMain)
+                {
+                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.15f))
+                    {
+                        velocity.y = 0f;
+                    }
+                }
+                else
+                {
+                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.15f))
+                    {
+                        velocity.y = 0f;
+                    }
+                }
             }
         }
     }
@@ -199,10 +247,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
-            velocity.x /= 2f;
+            sinking = true;
             maxJumpHeight = 1f;
             maxJumpTime = 0.5f;
             moveSpeed = 3f;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            if (velocity.y < 0f)
+            {
+                velocity.y /= 10f;
+            }
         }
     }
 
@@ -210,9 +269,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
+            sinking = false;
             maxJumpHeight = 5f;
             maxJumpTime = 1f;
             moveSpeed = 8f;
+            gravity = (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
         }
     }
 }

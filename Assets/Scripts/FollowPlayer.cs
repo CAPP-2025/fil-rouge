@@ -47,6 +47,7 @@
                 }
 
                 pet.transform.position = storedPositions.Dequeue();
+                pet.transform.position = new Vector3(pet.transform.position.x, pet.transform.position.y - 0.1f, pet.transform.position.z);
                 jumping = storedJumping.Dequeue();
                 running = storedRunning.Dequeue();
             }

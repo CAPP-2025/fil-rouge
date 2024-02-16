@@ -4,14 +4,11 @@ public static class Extensions
 {
     private static LayerMask layerMask = LayerMask.GetMask("Default", "Enemy", "Water");
 
-    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction)
+    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction, float distance = 0.375f, float radius = 0.25f)
     {
         if (rigidbody.isKinematic) {
             return false;
         }
-
-        float radius = 0.25f;
-        float distance = 0.375f;
 
         RaycastHit2D[] hits = Physics2D.CircleCastAll(rigidbody.position, radius, direction.normalized, distance, layerMask);
         foreach (RaycastHit2D hit in hits) {
@@ -25,7 +22,8 @@ public static class Extensions
     public static bool DotTest(this Transform transform, Transform other, Vector2 testDirection)
     {
         Vector2 direction = other.position - transform.position;
-        return Vector2.Dot(direction.normalized, testDirection) > 0.25f;
+        bool inDirection = Vector2.Dot(direction.normalized, testDirection) > 0.01f;
+        return inDirection;
     }
 
 }
