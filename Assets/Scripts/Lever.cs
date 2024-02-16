@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lever : MonoBehaviour
+public class Lever : MonoBehaviour
 {
-    private bool triggered;
+    public bool triggered { get; private set;}
 
     // Start is called before the first frame update
     void Start()
