@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         this.stage = stage;
 
         SceneManager.LoadScene($"{world}-{stage}");
+        HealthManager.health = 3;
     }
 
     public void NextLevel()

@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private new Collider2D collider;
 
+    [SerializeField] private AudioSource killed;
+    [SerializeField] private AudioSource jumpChampi;
+
     private Vector2 velocity;
     private float inputAxis;
     public PlayerMovement otherMovement;
@@ -177,7 +180,10 @@ public class PlayerMovement : MonoBehaviour
                 // bounce back up from the enemy's head, and kill the enemy
                 velocity.y = jumpForce;
                 jumping = true;
+                jumpChampi.Play();
             }
+            else
+                killed.Play();
         }
         else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
         {
