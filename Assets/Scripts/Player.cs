@@ -19,10 +19,25 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (!dead && !starpower)
+        if (--HealthManager.health > 0)
+        {
+            StartCoroutine(GetHurt());
+        }
+        else if (!dead && !starpower)
         {
             Death();
         }
+    }
+
+    IEnumerator GetHurt() {
+        Physics2D.IgnoreLayerCollision(3, 7, true);
+        for (int i = 0; i < 6; i++) {
+            yield return new WaitForSeconds(0.25F);
+            playerRenderer.enabled = false;
+            yield return new WaitForSeconds(0.25F);
+            playerRenderer.enabled = true;
+        }
+        Physics2D.IgnoreLayerCollision(3, 7, false);
     }
 
     public void Death()
