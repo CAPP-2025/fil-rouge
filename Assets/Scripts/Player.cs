@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (--HealthManager.health > 0)
+        if (--GameManager.lives > 0)
         {
             StartCoroutine(GetHurt());
         }

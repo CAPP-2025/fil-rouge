@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public int world { get; private set; }
     public int stage { get; private set; }
-    public int lives { get; private set; }
+    public static int lives { get; set; }
     public int coins { get; private set; }
 
     private void Awake()
@@ -54,8 +54,9 @@ public class GameManager : MonoBehaviour
         this.world = world;
         this.stage = stage;
 
+        lives = 3;
+        Physics2D.IgnoreLayerCollision(3, 7, false);
         SceneManager.LoadScene($"{world}-{stage}");
-        HealthManager.health = 3;
     }
 
     public void NextLevel()
