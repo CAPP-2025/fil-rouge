@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public int world { get; private set; }
     public int stage { get; private set; }
-    public static int lives { get; set; }
+    public static int lives;
     public int coins { get; private set; }
 
     private void Awake()
@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
         this.world = world;
         this.stage = stage;
 
-        lives = 3;
         Physics2D.IgnoreLayerCollision(3, 7, false);
         SceneManager.LoadScene($"{world}-{stage}");
     }
@@ -71,8 +70,6 @@ public class GameManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        lives--;
-
         if (lives > 0) {
             LoadLevel(world, stage);
         } else {
@@ -89,6 +86,11 @@ public class GameManager : MonoBehaviour
             coins = 0;
             AddLife();
         }
+    }
+
+    public void LoseLife()
+    {
+        lives--;
     }
 
     public void AddLife()
