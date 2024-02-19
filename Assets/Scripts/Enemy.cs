@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Goomba : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public Sprite flatSprite;
 
@@ -21,13 +21,6 @@ public class Goomba : MonoBehaviour
         if (collision.gameObject.CompareTag("Pet")) {
             Pet pet = collision.gameObject.GetComponent<Pet>();
             pet.Hit();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Shell")) {
-            Hit();
         }
     }
 

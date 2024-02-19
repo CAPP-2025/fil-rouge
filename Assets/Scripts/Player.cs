@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
 
     public bool dead => deathAnimation.enabled;
     public bool starpower { get; private set; }
+    public bool immune { get; private set;}
+    public GameObject[] hearts = new GameObject[3];
+    public GameObject[] emptyHearts = new GameObject[3];
 
     private void Awake()
     {
@@ -19,7 +22,9 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (--HealthManager.health > 0)
+        if (immune) return;
+        LoseLife();
+        if (GameManager.lives > 0)
         {
             StartCoroutine(GetHurt());
         }
@@ -29,7 +34,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GainLife()
+    {
+        if (GameManager.lives < 3)
+        {
+            GameManager.Instance.AddLife();
+            hearts[GameManager.lives - 1].SetActive(true);
+            emptyHearts[GameManager.lives - 1].SetActive(false);
+        }
+    }
+
+    public void LoseLife()
+    {
+        if (GameManager.lives > 0)
+        {
+            GameManager.Instance.LoseLife();
+            hearts[GameManager.lives].SetActive(false);
+            emptyHearts[GameManager.lives].SetActive(true);
+        }
+    }
+
     IEnumerator GetHurt() {
+        immune = true;
         Physics2D.IgnoreLayerCollision(3, 7, true);
         for (int i = 0; i < 6; i++) {
             yield return new WaitForSeconds(0.25F);
@@ -38,6 +64,7 @@ public class Player : MonoBehaviour
             playerRenderer.enabled = true;
         }
         Physics2D.IgnoreLayerCollision(3, 7, false);
+        immune = false;
     }
 
     public void Death()
