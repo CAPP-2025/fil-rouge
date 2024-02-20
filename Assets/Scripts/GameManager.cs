@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int stage { get; private set; }
     public static int lives;
     public int coins { get; private set; }
+    public bool menu;
 
     private void Awake()
     {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
-
+        menu = true;
         NewGame();
     }
 
@@ -55,7 +56,10 @@ public class GameManager : MonoBehaviour
         this.stage = stage;
 
         Physics2D.IgnoreLayerCollision(3, 7, false);
-        SceneManager.LoadScene($"{world}-{stage}");
+        if (menu)
+            SceneManager.LoadScene($"Start Screen");
+        else
+            SceneManager.LoadScene($"{world}-{stage}");
     }
 
     public void NextLevel()
