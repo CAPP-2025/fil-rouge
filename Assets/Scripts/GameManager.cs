@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour
     public int coins { get; private set; }
     public bool menu;
 
-    // roses count is a textmeshpro text
-    public TMPro.TextMeshProUGUI rosesCount;
-
     private void Awake()
     {
         if (Instance != null) {
@@ -93,9 +90,6 @@ public class GameManager : MonoBehaviour
             coins = 0;
             AddLife();
         }
-
-        // set roses count to "x 000"
-        rosesCount.text = $"x {coins:000}";
     }
 
     public void LoseLife()

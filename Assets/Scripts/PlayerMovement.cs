@@ -87,11 +87,17 @@ public class PlayerMovement : MonoBehaviour
             walljumpTimer = 0f;
             GroundedMovement();
         }
-        if (rigidbody.Raycast(Vector2.right) && !grounded) {
+        if (rigidbody.Raycast(Vector2.right) && collider.IsTouchingLayers(LayerMask.GetMask("Default")) && !grounded) {
             WallMovement(true);
+            if (velocity.x > 0f) {
+                velocity.x = 0f;
+            }
         }
-        if (rigidbody.Raycast(Vector2.left) && !grounded) {
+        if (rigidbody.Raycast(Vector2.left) && collider.IsTouchingLayers(LayerMask.GetMask("Default")) && !grounded) {
             WallMovement(false);
+            if (velocity.x < 0f) {
+                velocity.x = 0f;
+            }
         }
         HorizontalMovement();
 
@@ -159,14 +165,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (isMain)
                 {
-                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.15f))
+                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.39f))
                     {
                         return;
                     }
                 }
                 else
                 {
-                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.15f))
+                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.375f))
                     {
                         return;
                     }
@@ -179,10 +185,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void WallMovement(bool right)
     {
-        // prevent horizontal movement from infinitly building up
-        if ((right && velocity.x > 0f || !right && velocity.x < 0f)) {
-            velocity.x = 0f;
-        }
         // perform jump and push away from wall
         if (Input.GetButtonDown("Jump"))
         {
@@ -227,14 +229,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (isMain)
                 {
-                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.15f))
+                    if (rigidbody.Raycast(Vector2.up, 1.45f, 0.39f))
                     {
                         velocity.y = 0f;
                     }
                 }
                 else
                 {
-                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.15f))
+                    if (rigidbody.Raycast(Vector2.up, 0.375f, 0.375f))
                     {
                         velocity.y = 0f;
                     }

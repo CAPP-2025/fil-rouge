@@ -6,6 +6,8 @@ public class BlockCoin : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.AddCoin();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Player>().UpdateRoses();
 
         StartCoroutine(Animate());
     }

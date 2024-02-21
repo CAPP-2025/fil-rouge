@@ -14,11 +14,24 @@ public class Player : MonoBehaviour
     public GameObject[] hearts = new GameObject[3];
     public GameObject[] emptyHearts = new GameObject[3];
 
+    // roses count is a textmeshpro text
+    public TMPro.TextMeshProUGUI rosesCount;
+
     private void Awake()
     {
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         deathAnimation = GetComponent<DeathAnimation>();
         UpdateLives();
+    }
+
+    private void Start()
+    {
+        UpdateRoses();
+    }
+
+    public void UpdateRoses()
+    {
+        rosesCount.text = $"x {GameManager.Instance.coins:000}";
     }
 
     public void Hit()
