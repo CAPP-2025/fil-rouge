@@ -3591,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6003101535810979192, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
+      propertyPath: m_Size.x
+      value: 227
+      objectReference: {fileID: 0}
     - target: {fileID: 6395779949944833221, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
       propertyPath: m_Name
       value: Stage (1)
@@ -3610,6 +3614,14 @@ PrefabInstance:
     - target: {fileID: 7079389921279952912, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131928527575554522, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 8131928527575554522, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

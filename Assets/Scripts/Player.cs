@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         deathAnimation = GetComponent<DeathAnimation>();
+        UpdateLives();
     }
 
     public void Hit()
@@ -51,6 +52,23 @@ public class Player : MonoBehaviour
             GameManager.Instance.LoseLife();
             hearts[GameManager.lives].SetActive(false);
             emptyHearts[GameManager.lives].SetActive(true);
+        }
+    }
+
+    public void UpdateLives()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < GameManager.lives)
+            {
+                hearts[i].SetActive(true);
+                emptyHearts[i].SetActive(false);
+            }
+            else
+            {
+                hearts[i].SetActive(false);
+                emptyHearts[i].SetActive(true);
+            }
         }
     }
 
