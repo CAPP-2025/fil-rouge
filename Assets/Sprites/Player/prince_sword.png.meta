@@ -1,0 +1,652 @@
+fileFormatVersion: 2
+guid: b8e11a511f591472c9ab734d4c4a0e88
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: prince_sword_88
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1346
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c379108873ebc35a9818814fd1657e7
+      internalID: 26240496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_89
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1346
+        width: 45
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba299b53747656939b2ee283ab7008de
+      internalID: 477992711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_90
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 1347
+        width: 45
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6cf55419fef81609adee6949ae8e34a
+      internalID: -329642654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_91
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1347
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8833f18c25d1ed78de220ec2c7930b
+      internalID: -1350391166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_92
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1346
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e9ec339e10177059c9ec0fcb64d6b8
+      internalID: 1867210318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_93
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1346
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555a61cc77b87e34aad9947c95b70f62
+      internalID: -897126483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_94
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1346
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde45bf5d6ac6702487a95ba58b26de0
+      internalID: -2112823489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_95
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1346
+        width: 46
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f50ebf587c35d6cac245b0044a164b
+      internalID: 1941798775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_96
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 1346
+        width: 44
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 514418d4fcdcd1ebca7a68418924c7da
+      internalID: -909908998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_203
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 65
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8298d39570d554cfb8a06663a5442a36
+      internalID: 519239026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_204
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 65
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5f366d16728100bb34826003759d77
+      internalID: -1453456131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_205
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 65
+        width: 40
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9891ddebc120f3f7b97aa4b35d717968
+      internalID: -912199389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_206
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 65
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd740d0db30987750b5966936b401770
+      internalID: 1899713710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_207
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 65
+        width: 103
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8355dc552fee7a6c38a236bcda3d8b44
+      internalID: -1190070784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prince_sword_208
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 65
+        width: 70
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a23eb776b8ac28f8c9d205cd80a82d
+      internalID: -1672653717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      prince_sword_0: -1513371464
+      prince_sword_1: 345715561
+      prince_sword_10: -1926944487
+      prince_sword_100: -1029964230
+      prince_sword_101: -898387491
+      prince_sword_102: 897287893
+      prince_sword_103: -797138688
+      prince_sword_104: -1500239656
+      prince_sword_105: 351471823
+      prince_sword_106: -1808930625
+      prince_sword_107: -1028607505
+      prince_sword_108: 2138147063
+      prince_sword_109: -1747973482
+      prince_sword_11: 773116567
+      prince_sword_110: 84122702
+      prince_sword_111: -1021814828
+      prince_sword_112: -1958910379
+      prince_sword_113: -121827913
+      prince_sword_114: 7955128
+      prince_sword_115: -44559556
+      prince_sword_116: -419399096
+      prince_sword_117: 1925650057
+      prince_sword_118: -613609421
+      prince_sword_119: 1868221885
+      prince_sword_12: 1538067480
+      prince_sword_120: 1962701711
+      prince_sword_121: -539622006
+      prince_sword_122: -235759704
+      prince_sword_123: 1254840335
+      prince_sword_124: -1169604450
+      prince_sword_125: -1610214890
+      prince_sword_126: -128060255
+      prince_sword_127: -455396067
+      prince_sword_128: -380700856
+      prince_sword_129: 1519369722
+      prince_sword_13: -280828478
+      prince_sword_130: 337005388
+      prince_sword_131: -1890828876
+      prince_sword_132: -211193727
+      prince_sword_133: 618964993
+      prince_sword_134: -622297292
+      prince_sword_135: 1722741383
+      prince_sword_136: 166237423
+      prince_sword_137: -1373359771
+      prince_sword_138: 1021150594
+      prince_sword_139: 982933414
+      prince_sword_14: 1402097179
+      prince_sword_140: 1727111240
+      prince_sword_141: -2061802178
+      prince_sword_142: -968068931
+      prince_sword_143: -1016955413
+      prince_sword_144: 1638004263
+      prince_sword_145: -58159117
+      prince_sword_146: -1691887043
+      prince_sword_147: -870857524
+      prince_sword_148: 1410871778
+      prince_sword_149: 1769656790
+      prince_sword_15: 1880582807
+      prince_sword_150: 782244341
+      prince_sword_151: -840849996
+      prince_sword_152: -418049848
+      prince_sword_153: -211401292
+      prince_sword_154: -2086060449
+      prince_sword_155: 344583886
+      prince_sword_156: -295586659
+      prince_sword_157: -379230059
+      prince_sword_158: -709635541
+      prince_sword_159: 1740221547
+      prince_sword_16: 1687931523
+      prince_sword_160: -1521346972
+      prince_sword_161: 1212395999
+      prince_sword_162: -121473090
+      prince_sword_163: -1089010848
+      prince_sword_164: -1334502976
+      prince_sword_165: -899365469
+      prince_sword_166: -670636789
+      prince_sword_167: 260744175
+      prince_sword_168: 984204624
+      prince_sword_169: -1791898758
+      prince_sword_17: 200081560
+      prince_sword_170: -1286258126
+      prince_sword_171: -476749553
+      prince_sword_172: 1568231513
+      prince_sword_173: 673438696
+      prince_sword_174: -2092695287
+      prince_sword_175: -683690268
+      prince_sword_176: -560786821
+      prince_sword_177: 66965804
+      prince_sword_178: -998976483
+      prince_sword_179: 1504256282
+      prince_sword_18: 1771274966
+      prince_sword_180: 1716317843
+      prince_sword_181: 1236161086
+      prince_sword_182: -69374592
+      prince_sword_183: -484531321
+      prince_sword_184: 1251343836
+      prince_sword_185: 1599441828
+      prince_sword_186: -222381110
+      prince_sword_187: 49056359
+      prince_sword_188: -2002871330
+      prince_sword_189: 615261992
+      prince_sword_19: 1379244917
+      prince_sword_190: 111912540
+      prince_sword_191: -121666949
+      prince_sword_192: 460765180
+      prince_sword_193: 64347596
+      prince_sword_194: 1475176382
+      prince_sword_195: -1520458177
+      prince_sword_196: 1306466195
+      prince_sword_197: -1508486073
+      prince_sword_198: 1180787184
+      prince_sword_199: 347075915
+      prince_sword_2: -958499380
+      prince_sword_20: -283428282
+      prince_sword_200: 1971914965
+      prince_sword_201: -1544275803
+      prince_sword_202: -1100477144
+      prince_sword_203: 519239026
+      prince_sword_204: -1453456131
+      prince_sword_205: -912199389
+      prince_sword_206: 1899713710
+      prince_sword_207: -1190070784
+      prince_sword_208: -1672653717
+      prince_sword_209: -446365494
+      prince_sword_21: -1084169387
+      prince_sword_22: -265145915
+      prince_sword_23: -612822651
+      prince_sword_24: -813724644
+      prince_sword_25: -1834957452
+      prince_sword_26: 564216337
+      prince_sword_27: -1848602309
+      prince_sword_28: -161945233
+      prince_sword_29: 1363696757
+      prince_sword_3: -1794879095
+      prince_sword_30: 1596355846
+      prince_sword_31: -1203210390
+      prince_sword_32: -1330186328
+      prince_sword_33: -464523790
+      prince_sword_34: 771048313
+      prince_sword_35: -443458685
+      prince_sword_36: -318000010
+      prince_sword_37: -1621426205
+      prince_sword_38: 751661577
+      prince_sword_39: 126886035
+      prince_sword_4: -577269519
+      prince_sword_40: 191483462
+      prince_sword_41: -121105087
+      prince_sword_42: -179584321
+      prince_sword_43: -145500499
+      prince_sword_44: 345433015
+      prince_sword_45: 576262583
+      prince_sword_46: -1762144814
+      prince_sword_47: 1330265538
+      prince_sword_48: -1830641598
+      prince_sword_49: -493315335
+      prince_sword_5: 1423734419
+      prince_sword_50: -573365921
+      prince_sword_51: 1244652617
+      prince_sword_52: 342594288
+      prince_sword_53: -2085044413
+      prince_sword_54: 1486265786
+      prince_sword_55: 14609867
+      prince_sword_56: -2119430414
+      prince_sword_57: -724335083
+      prince_sword_58: 1579783490
+      prince_sword_59: -302532373
+      prince_sword_6: 500128723
+      prince_sword_60: 1068601593
+      prince_sword_61: 15250452
+      prince_sword_62: 978429909
+      prince_sword_63: -1255879744
+      prince_sword_64: 467594440
+      prince_sword_65: -389309003
+      prince_sword_66: 1280623277
+      prince_sword_67: -1449255123
+      prince_sword_68: -309682730
+      prince_sword_69: 1835803385
+      prince_sword_7: 865045271
+      prince_sword_70: 890430263
+      prince_sword_71: -1576361988
+      prince_sword_72: -264166052
+      prince_sword_73: -674859516
+      prince_sword_74: -1074032038
+      prince_sword_75: 1721071886
+      prince_sword_76: 415341139
+      prince_sword_77: 797832884
+      prince_sword_78: 2101610223
+      prince_sword_79: 846358364
+      prince_sword_8: -694462350
+      prince_sword_80: 1405391938
+      prince_sword_81: 1550811976
+      prince_sword_82: -567500014
+      prince_sword_83: -1367861049
+      prince_sword_84: 1827345304
+      prince_sword_85: -1065200352
+      prince_sword_86: 542173774
+      prince_sword_87: 313813515
+      prince_sword_88: 26240496
+      prince_sword_89: 477992711
+      prince_sword_9: -622515084
+      prince_sword_90: -329642654
+      prince_sword_91: -1350391166
+      prince_sword_92: 1867210318
+      prince_sword_93: -897126483
+      prince_sword_94: -2112823489
+      prince_sword_95: 1941798775
+      prince_sword_96: -909908998
+      prince_sword_97: -493505173
+      prince_sword_98: -208102216
+      prince_sword_99: -1438331757
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
