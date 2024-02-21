@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickLevel : MonoBehaviour
 {
-    public GameManager game;
     public GameObject player;
 
     private Animator anim;
@@ -23,8 +22,8 @@ public class PickLevel : MonoBehaviour
             float player_pos = player.transform.position.x;
             if (player_pos > door_pos - half_door && player_pos < door_pos + half_door) {
                 anim.Play("door_animation");
-                game.menu = false;
-                game.LoadLevel(
+                GameManager.Instance.menu = false;
+                GameManager.Instance.LoadLevel(
                     name[0] - '0', 
                     name[1] - '0');
             }
