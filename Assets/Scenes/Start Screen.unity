@@ -294,8 +294,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3e35f01d137ae49a55258ed3c4b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 7906793757495416727}
-  transitionTime: 0.8
 --- !u!1 &579290369
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 553396183736495350, guid: d2611a9a78f076c4895b8effc4a4250c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 751702886696844316, guid: d2611a9a78f076c4895b8effc4a4250c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.3
@@ -551,6 +553,10 @@ PrefabInstance:
     - target: {fileID: 751702886696844316, guid: d2611a9a78f076c4895b8effc4a4250c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1394871172187062821, guid: d2611a9a78f076c4895b8effc4a4250c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2394004602436940963, guid: d2611a9a78f076c4895b8effc4a4250c, type: 3}
       propertyPath: game
