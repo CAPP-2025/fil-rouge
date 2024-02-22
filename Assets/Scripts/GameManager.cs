@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    //public LevelLoader levelLoader;
+
     public int world { get; private set; }
     public int stage { get; private set; }
     public static int lives;
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
         this.stage = stage;
 
         Physics2D.IgnoreLayerCollision(3, 7, false);
+        //StartCoroutine(levelLoader.LoadWithTransition(world, stage, menu));
         if (menu)
             SceneManager.LoadScene($"Start Screen");
         else
