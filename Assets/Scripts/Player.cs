@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public bool starpower { get; private set; }
     public bool immune { get; private set;}
     public GameObject[] hearts = new GameObject[3];
+    public AudioSource deathSound;
     public GameObject[] emptyHearts = new GameObject[3];
 
     // roses count is a textmeshpro text
@@ -104,6 +105,8 @@ public class Player : MonoBehaviour
         playerRenderer.enabled = false;
         petRenderer.enabled = false;
         deathAnimation.enabled = true;
+
+        deathSound.Play();
 
         GameManager.Instance.ResetLevel(3f);
     }
