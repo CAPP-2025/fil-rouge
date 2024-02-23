@@ -54,6 +54,14 @@ public class Tutorial : MonoBehaviour
         }
 
         dialogSkip.gameObject.SetActive(false);
+        tutorialText.text = "You can pause the game at any time by pressing P. (X)";
+        yield return new WaitForSeconds(0.5f);
+        dialogSkip.gameObject.SetActive(true);
+        while (!Input.GetKeyDown(KeyCode.RightArrow) && !Input.GetKeyDown(KeyCode.Return) && !Input.GetKeyDown(KeyCode.Space)) {
+            yield return null;
+        }
+
+        dialogSkip.gameObject.SetActive(false);
         tutorialText.text = "Avoid the adults and snakes, and collect the roses. Have fun !";
         yield return new WaitForSeconds(0.5f);
         dialogSkip.gameObject.SetActive(true);
