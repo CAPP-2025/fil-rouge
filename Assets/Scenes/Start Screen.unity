@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 644244740}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &137505427
@@ -352,6 +352,11 @@ Transform:
   - {fileID: 1878112049}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644244740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737513997153096982, guid: 58f8ce1ac32c47a47b1e32558c222d84, type: 3}
+  m_PrefabInstance: {fileID: 5652406956658937268}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1137228740
 PrefabInstance:
   m_ObjectHideFlags: 0

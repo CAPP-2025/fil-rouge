@@ -17,7 +17,7 @@ public class GameMenu : MonoBehaviour
 
     // on update, if the Escape key is pressed, show the object and pause the game
     void Update() {
-        if (Input.GetKeyDown(KeyCode.P)) {
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.PageUp)) {
             if (isPaused) {
                 ResumeGame();
             } else {
@@ -47,11 +47,13 @@ public class GameMenu : MonoBehaviour
 
     public void RestartGame() {
         // load level Game
+        ResumeGame();
         GameManager.Instance.ResetLevel();
     }
 
     public void MainMenu() {
         // load level StartMenu
+        ResumeGame();
         GameManager.Instance.LoadMenu();
     }
 
