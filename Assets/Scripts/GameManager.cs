@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static int lives;
     public int coins { get; private set; }
     public bool menu;
+    public bool[] levels = new bool[3];
 
     private void Awake()
     {
@@ -52,6 +53,11 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene($"Start Screen");
+    }
+
     public void LoadLevel(int world, int stage)
     {
         this.world = world;
@@ -67,7 +73,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        LoadLevel(world, stage + 1);
+        levels[stage - 1] = true;
+        LoadMenu();
     }
 
     public void ResetLevel(float delay)

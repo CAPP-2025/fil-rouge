@@ -63,7 +63,7 @@ public class FinishAnimation : MonoBehaviour
         StartCoroutine(MoveTo(birds.transform, destination.position));
         yield return MoveTo(player.transform, destination.position);
 
-        GameManager.Instance.LoadLevel(nextWorld, nextStage);
+        GameManager.Instance.NextLevel();
     }
 
     private IEnumerator MoveTo(Transform subject, Vector3 position)
