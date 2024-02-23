@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class EntityMovement : MonoBehaviour
+public class EntityMovementNoFall : MonoBehaviour
 {
     public float speed = 1f;
     public Vector2 direction = Vector2.left;
@@ -40,7 +40,6 @@ public class EntityMovement : MonoBehaviour
         rigidbody.velocity = Vector2.zero;
         rigidbody.Sleep();
     }
-
     private void FixedUpdate()
     {
         velocity.x = direction.x * speed;
@@ -48,7 +47,10 @@ public class EntityMovement : MonoBehaviour
 
         rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
 
-        if (rigidbody.Raycast(direction)) {
+        if (rigidbody.Raycast(direction, 0.8f)) {
+            direction = -direction;
+        }
+        else if (!rigidbody.Raycast(Vector2.down + direction * 0.1f, 0.375f, 0.25f, LayerMask.NameToLayer("Default")) && rigidbody.Raycast(Vector2.down, 0.375f, 0.25f, LayerMask.NameToLayer("Default"))) {
             direction = -direction;
         }
 
@@ -62,5 +64,4 @@ public class EntityMovement : MonoBehaviour
             transform.localEulerAngles = Vector3.zero;
         }
     }
-
 }

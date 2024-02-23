@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 186436425335658667}
   m_Layer: 3
   m_Name: PrinceRenderer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,8 +17,8 @@ TagManager:
   - Enemy
   - Shell
   - PlayerRender
-  - 
-  - 
+  - Moving
+  - MovingRoot
   - 
   - 
   - 

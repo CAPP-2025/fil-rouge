@@ -2,10 +2,13 @@ using UnityEngine;
 
 public static class Extensions
 {
-    private static LayerMask layerMask = LayerMask.GetMask("Default", "Enemy", "Water");
+    private static LayerMask layerMaskDefault = LayerMask.GetMask("Default", "Enemy", "Water", "Moving");
 
-    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction, float distance = 0.375f, float radius = 0.25f)
+    public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction, float distance = 0.375f, float radius = 0.25f, LayerMask layerMask = default)
     {
+        if (layerMask == default) {
+            layerMask = layerMaskDefault;
+        }
         if (rigidbody.isKinematic) {
             return false;
         }
@@ -22,7 +25,7 @@ public static class Extensions
     public static bool DotTest(this Transform transform, Transform other, Vector2 testDirection)
     {
         Vector2 direction = other.position - transform.position;
-        bool inDirection = Vector2.Dot(direction.normalized, testDirection) > 0.01f;
+        bool inDirection = Vector2.Dot(direction.normalized, testDirection) > 0.25f;
         return inDirection;
     }
 

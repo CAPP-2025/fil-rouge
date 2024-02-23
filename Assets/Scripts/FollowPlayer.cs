@@ -23,7 +23,7 @@
             storedJumping = new Queue<bool>();
         }
      
-        void Update()
+        void FixedUpdate()
         {
             storedPositions.Enqueue(transform.position);
             storedJumping.Enqueue(movement.jumping);

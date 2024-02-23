@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
             if (player.starpower) {
                 Hit();
-            } else if (collision.transform.DotTest(transform, Vector2.down)) {
+            } else if (collision.transform.DotTest(transform, Vector2.down)){
                 Flatten();
             } else {
                 player.Hit();
@@ -27,7 +27,10 @@ public class Enemy : MonoBehaviour
     private void Flatten()
     {
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<EntityMovement>().enabled = false;
+        if (GetComponent<EntityMovement>() != null)
+            GetComponent<EntityMovement>().enabled = false;
+        else
+            GetComponent<EntityMovementNoFall>().enabled = false;
         GetComponent<AnimatedSprite>().enabled = false;
         GetComponent<SpriteRenderer>().sprite = flatSprite;
         Destroy(gameObject, 0.5f);
