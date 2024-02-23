@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static int lives;
     public int coins { get; private set; }
     public bool menu;
+    public bool isTutorial;
     public bool[] levels = new bool[3];
 
     private void Awake()
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         menu = true;
+        isTutorial = true;
         NewGame();
     }
 

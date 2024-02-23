@@ -13,7 +13,11 @@ public class Tutorial : MonoBehaviour
     
     
     void Start() {
-        StartCoroutine(displayTutorialText());
+        if (GameManager.Instance.isTutorial) {
+            StartCoroutine(displayTutorialText());
+        } else {
+            gameObject.SetActive(false);
+        }
     }
     
     public IEnumerator displayTutorialText() {
@@ -58,5 +62,6 @@ public class Tutorial : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+        GameManager.Instance.isTutorial = false;
     }
 }
