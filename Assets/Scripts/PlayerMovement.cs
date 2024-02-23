@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
     private bool moving = false;
     public bool gamePaused = false;
 
+    public AudioSource bonkSound;
+
     private void Awake()
     {
         gravity = (-2f * maxJumpHeight) / Mathf.Pow(maxJumpTime / 2f, 2f);
@@ -245,6 +247,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (rigidbody.Raycast(Vector2.up, 1.45f, 0.39f))
                     {
+                        bonkSound.Play();
                         velocity.y = 0f;
                     }
                 }
@@ -252,6 +255,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (rigidbody.Raycast(Vector2.up, 0.375f, 0.375f))
                     {
+                        bonkSound.Play();
                         velocity.y = 0f;
                     }
                 }

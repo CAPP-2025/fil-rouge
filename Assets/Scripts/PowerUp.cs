@@ -11,6 +11,7 @@ public class PowerUp : MonoBehaviour
     }
 
     public Type type;
+    public AudioSource coin;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,6 +25,7 @@ public class PowerUp : MonoBehaviour
         switch (type)
         {
             case Type.Coin:
+                coin.Play();
                 GameManager.Instance.AddCoin();
                 player.GetComponent<Player>().UpdateRoses();
                 break;
