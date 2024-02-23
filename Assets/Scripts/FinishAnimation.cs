@@ -11,6 +11,7 @@ public class FinishAnimation : MonoBehaviour
     private GameObject player;
     public int nextWorld = 1;
     public int nextStage = 1;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class FinishAnimation : MonoBehaviour
         {
             player = other.gameObject;
             Debug.Log("Level complete!");
+            audioSource.Play();
             StartCoroutine(LevelCompleteSequence());
         }
     }
