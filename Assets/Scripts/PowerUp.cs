@@ -28,6 +28,7 @@ public class PowerUp : MonoBehaviour
                 coin.Play();
                 GameManager.Instance.AddCoin();
                 player.GetComponent<Player>().UpdateRoses();
+                player.GetComponent<Player>().UpdateLives();
                 break;
 
             case Type.ExtraLife:
