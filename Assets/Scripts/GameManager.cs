@@ -49,8 +49,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // TODO: show game over screen
+        SceneManager.LoadScene($"GameOver");
 
-        NewGame();
+        Invoke(nameof(NewGame), 3f);
     }
 
     public void LoadMenu()
