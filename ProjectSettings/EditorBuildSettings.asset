@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Backup Start Screen.unity
     guid: 17641c4cef99940f7be24dec3178b683
   - enabled: 1
-    path: Assets/Scenes/1-2.unity
+    path: Assets/Scenes/1-7.unity
     guid: db50322990e765b4f9475f79969042c9
   - enabled: 1
-    path: Assets/Scenes/1-1.unity
+    path: Assets/Scenes/1-5.unity
     guid: f2cdf2b06d525dd409b9c791a23f3ae2
   - enabled: 1
     path: Assets/Scenes/Start Screen.unity
     guid: c3478f455b47540629f0013391d603fe
   - enabled: 1
-    path: Assets/Scenes/1-4.unity
+    path: Assets/Scenes/1-1.unity
     guid: c6ecb806aabb9594bba02224d189cc21
+  - enabled: 1
+    path: Assets/Scenes/1-2.unity
+    guid: 5611625069ec2124687f8a19073806b9
   m_configObjects: {}
