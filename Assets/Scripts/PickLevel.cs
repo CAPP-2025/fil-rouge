@@ -21,12 +21,16 @@ public class PickLevel : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow)) {
             float player_pos = player.transform.position.x;
             if (player_pos > door_pos - half_door && player_pos < door_pos + half_door) {
-                anim.Play("door_animation");
-                GameManager.Instance.menu = false;
-                GameManager.Instance.LoadLevel(
-                    name[0] - '0', 
-                    name[1] - '0');
+                anim.SetTrigger("open");
             }
         }
+    }
+
+    public void OnDoorOpened() {
+    // Put the code that you want to execute after the door animation finishes here
+        GameManager.Instance.menu = false;
+        GameManager.Instance.LoadLevel(
+            name[0] - '0', 
+            name[1] - '0');
     }
 }
